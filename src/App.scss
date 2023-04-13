@@ -1,0 +1,24 @@
+.App {
+  width: 70vw;
+  margin: auto;
+
+  .main {}
+
+  .mentioned {
+    background-color: lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 0;
+    right: 15vw;
+    background-color: beige;
+    text-align: center;
+    align-items: center;
+    width: 30vw;
+    height: 100px;
+    z-index: 1;
+  }
+}
