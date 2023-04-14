@@ -7,7 +7,7 @@ function App() {
     setIsCp(e => !e);
     setTimeout(() => {
       setIsCp(e => !e);
-    }, 3000);
+    }, 2000);
   }
   return <div className="App">
     {isCp && <div className="toast">
