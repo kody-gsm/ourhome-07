@@ -1,23 +1,35 @@
+@font-face {
+  font-family: 'IBMPlexSansKR-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .App {
   width: 70vw;
   margin: auto;
+  font-family: "IBMPlexSansKR-Regular";
 
-  .main {}
+  p {
+    font-weight: normal;
+  }
 
-  .mentioned {
-    background-color: lightgray;
-    border-radius: 5px;
-    cursor: pointer;
+  .main {
+    .mentioned {
+      background-color: lightgray;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   }
 
   .toast {
     position: fixed;
-    bottom: 0;
-    right: 15vw;
+    bottom: 5vh;
+    right: 10vw;
     background-color: beige;
     text-align: center;
     align-items: center;
-    width: 30vw;
+    width: 200px;
     height: 100px;
     z-index: 1;
   }
