@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import './App.scss';
+import Landing from "./coms/Landing";
+import Qnaa from "./coms/Qnaa";
+import Qnaq from "./coms/Qnaq";
+import Welcome from "./coms/Welcome";
 
 export default function App() {
   return <div className="App">
@@ -13,32 +17,6 @@ export default function App() {
         <Route path="/qna-answers" element={<Qnaa />} />
       </Routes>
     </BrowserRouter>
-  </div>;
-}
-
-function Landing() { //처음
-  return <div className="landing">
-    landing page
-    <a href="/welcome">go</a>
-  </div>;
-}
-
-function Welcome() {
-  return <div className="welcome">
-    welcome
-    <a href="/qna">qna</a>
-  </div>;
-}
-
-function Qnaq() {
-  return <div className="qna">
-    qna
-  </div>;
-}
-
-function Qnaa() {
-  return <div className="qna">
-    qna
   </div>;
 }
 
