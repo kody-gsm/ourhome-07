@@ -9,7 +9,8 @@ export default function App() {
         <Route path="*" element={<Navigate to={'/'} replace />} />
         <Route path="/" element={<Landing />} />
         <Route path="/welcome" element={<Welcome />} />
-        <Route path="/qna" element={<Qna />} />
+        <Route path="/qna-questions" element={<Qnaq />} />
+        <Route path="/qna-answers" element={<Qnaa />} />
       </Routes>
     </BrowserRouter>
   </div>;
@@ -29,11 +30,16 @@ function Welcome() {
   </div>;
 }
 
-function Qna() {
+function Qnaq() {
   return <div className="qna">
     qna
   </div>;
+}
 
+function Qnaa() {
+  return <div className="qna">
+    qna
+  </div>;
 }
 
 // 안씀
