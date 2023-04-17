@@ -1,10 +1,10 @@
 import React from "react";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import './App.scss';
-import Landing from "./coms/Landing";
-import Qnaa from "./coms/Qnaa";
-import Qnaq from "./coms/Qnaq";
-import Welcome from "./coms/Welcome";
+import Landing from "./pages/Landing";
+import Qnaa from "./pages/Qnaa";
+import Qnaq from "./pages/Qnaq";
+import Welcome from "./pages/Welcome";
 
 export default function App() {
   return <div className="App">
