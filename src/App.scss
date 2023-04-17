@@ -5,16 +5,50 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'LotteMartDream';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
+}
+
 .App {
-  width: 70vw;
-  margin: auto;
   font-family: "IBMPlexSansKR-Regular";
 
   p {
     font-weight: normal;
   }
 
-  .landing {}
+  .landing {
+    margin-top: 15vh;
+    justify-content: center;
+    text-align: center;
+
+    button {
+      cursor: pointer;
+      font-size: 20px;
+      height: 60px;
+      background-color: white;
+      width: 300px;
+      border-radius: 5px;
+      border: 0.5px solid #D9D9D9;
+      box-shadow: 0px 0px 1px 1px #efefef;
+
+      &:hover {
+        background-color: darken(white, 3%);
+      }
+
+      &:active {
+        background-color: lighten(white, 2%);
+      }
+    }
+
+    img {
+      width: 50vw;
+      height: 45vh;
+      object-fit: scale-down;
+    }
+  }
 
   .welcome {}
 
