@@ -7,18 +7,33 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="*" element={<Navigate to={'/'} replace />} />
-        <Route path="/" element={<>landing page</>} />
-        <Route path="/detail" element={<Detail />} />
-        <Route path="/qna" element={<>qna page</>} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/welcome" element={<Welcome />} />
+        <Route path="/qna" element={<Qna />} />
       </Routes>
     </BrowserRouter>
   </div>;
 }
 
-function Detail() {
-  return <div className="detail">
-    detail
+function Landing() { //처음
+  return <div className="landing">
+    landing page
+    <a href="/welcome">go</a>
   </div>;
+}
+
+function Welcome() {
+  return <div className="welcome">
+    welcome
+    <a href="/qna">qna</a>
+  </div>;
+}
+
+function Qna() {
+  return <div className="qna">
+    qna
+  </div>;
+
 }
 
 // 안씀
