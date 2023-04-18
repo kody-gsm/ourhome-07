@@ -71,9 +71,23 @@ body::-webkit-scrollbar-track {
     }
   }
 
-  .welcome {}
+  .welcome {
+    .header {
+      .kodylogo {
+        width: 100px;
+        height: 100px;
+        object-fit: scale-down;
+        cursor: pointer;
+      }
+    }
 
-  .qnaq {}
+    .main {}
+  }
+
+  .qnaq {
+    width: 70vw;
+    margin: auto;
+  }
 
   .qnaa {
     width: 70vw;
@@ -167,6 +181,8 @@ body::-webkit-scrollbar-track {
         cursor: pointer;
         margin-right: 10px;
       }
+
+      margin-bottom: 50px;
     }
   }
 

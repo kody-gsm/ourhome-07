@@ -5,7 +5,7 @@ import Answer from "../components/Answer"
 
 export default function Qnaq() {
   return (
-    <div className="qna">
+    <div className="qnaq">
       <NavBar />
       <QuestionInput />
       <Answer />
