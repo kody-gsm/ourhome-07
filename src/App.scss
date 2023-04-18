@@ -14,6 +14,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap');
 
+body::-webkit-scrollbar {
+  width: 5px;
+  /* 스크롤바의 너비 */
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 30%;
+  /* 스크롤바의 길이 */
+  background: #d9d9d9;
+  /* 스크롤바의 색상 */
+
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: white;
+  /*스크롤바 뒷 배경 색상*/
+}
+
 .App {
   font-family: "IBMPlexSansKR-Regular";
 
@@ -68,6 +87,7 @@
         width: 100px;
         height: 100px;
         object-fit: scale-down;
+        cursor: pointer;
       }
 
       button {
