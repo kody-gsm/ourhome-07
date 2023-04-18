@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import kodylogo from '../imgs/kody.png';
 import textbox from '../imgs/textbox.png';
 import arrow from '../imgs/arrow.png';
@@ -7,12 +7,18 @@ import bell_act from '../imgs/bell_act.png';
 
 export default function Welcome() {
   const [oning, setOning] = useState(false);
+  useEffect(e => {
+
+  }, []);
+  window.onscroll = e => {
+    console.log(window.scrollY);
+  };
   return <div className="welcome">
     <div className="header">
       <img className="kodylogo" src={kodylogo} alt="kodylogo" onClick={e => window.location.href = 'welcome'} />
     </div>
     <div className="main">
-      <div className="firbox">
+      <div className={"firbox"}>
         <span>일상생활을<br /></span> <span className="span">Kody</span>
         <div className="jbox">
           <span>해드립니다.</span>
@@ -43,9 +49,11 @@ export default function Welcome() {
         </div>
       </div>
       <div className="bottom">
-        <p>직접 질문하고 답변을 받고 싶다면?</p>
-        <a href="/qna-answers"><button>Q&A 하러 가기</button></a>
+        <div className="asdf">
+          <span>직접 질문하고 답변을 받고 싶다면?</span><br />
+          <a href="/qna-answers"><button>Q&A 하러 가기</button></a>
+        </div>
       </div>
     </div>
-  </div>;
+  </div >;
 }
