@@ -11,13 +11,13 @@ function QuestionInput() {
 
   const sendQuestion = async () => {
     console.log("전송버튼이 눌림")
-    await axios.post("url", { question: question })
-    .catch(function (error) {
-      console.log(error)
-    })
-    .then(function() {
+    // await axios.post("url", { question: question })
+    // .catch(function (error) {
+    //   console.log(error)
+    // })
+    // .then(function() {
 
-    });
+    // });
   };
 
   return (
