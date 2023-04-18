@@ -12,7 +12,8 @@
   src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Katibeh&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 body::-webkit-scrollbar {
   width: 5px;
@@ -72,6 +73,9 @@ body::-webkit-scrollbar-track {
   }
 
   .welcome {
+    width: 70vw;
+    margin: auto;
+
     .header {
       .kodylogo {
         width: 100px;
@@ -81,12 +85,158 @@ body::-webkit-scrollbar-track {
       }
     }
 
-    .main {}
+    .main {
+      .firbox {
+        font-family: 'Inter', sans-serif;
+        font-size: 40px;
+        font-weight: bold;
+
+        .jbox {
+          margin-left: 120px;
+        }
+
+        .span {
+          position: absolute;
+          font-family: 'Katibeh', cursive;
+          font-size: 70px;
+          margin-top: -30px;
+        }
+      }
+    }
   }
 
   .qnaq {
     width: 70vw;
     margin: auto;
+
+    .answer-box {
+      width: 80%;
+      height: 142px;
+      border: 0.5px solid #d9d9d9;
+      border-radius: 20px;
+    }
+
+    .answer-input-box {
+      margin-left: 10px;
+      margin-top: 20px;
+      width: 90%;
+      height: 70%;
+      border: none;
+      resize: none;
+      font-size: 20px;
+    }
+
+    .answer-input-box::placeholder {
+      font-family: "12LotteMartDreamMedium";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 100%;
+      color: #8b8686;
+    }
+
+    .answer-input-box:disabled {
+      background-color: white;
+    }
+
+    .nav-area {
+      width: 100%;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .logo-img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .btn-qna-more {
+      margin-top: 30px;
+      width: 200px;
+      height: 50px;
+      background-color: #565758;
+      color: #ffffff;
+      border-radius: 5px;
+      border: 0;
+      outline: 0;
+      font-weight: 500;
+    }
+
+    .btn-qna-more:hover {
+      background-color: #48494a;
+    }
+
+    .btn-qna-more:active {
+      box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.1);
+      transform: translateY(1px);
+    }
+
+    .question {
+      margin-top: 60px;
+    }
+
+    .attension-ment {
+      font-family: "12LotteMartDreamMedium";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      text-align: center;
+      color: #8b8686;
+    }
+
+    .question-part p {
+      margin-left: 100px;
+    }
+
+    .question-area {
+      display: flex;
+    }
+
+    .upper {
+      margin-top: 0px;
+      font-size: 95px;
+
+    }
+
+    .question-box {
+      width: 80%;
+      height: 200px;
+      border: 0.5px solid #d9d9d9;
+      border-radius: 20px;
+    }
+
+    .question-input-box {
+      margin-left: 10px;
+      margin-top: 20px;
+      width: 90%;
+      height: 70%;
+      border: none;
+      resize: none;
+      font-size: 20px;
+    }
+
+    .question-input-box:focus {
+      outline: none;
+    }
+
+    .question-input-box::placeholder {
+      font-family: "12LotteMartDreamMedium";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 100%;
+      color: #8b8686;
+    }
+
+    .send-icon {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+
   }
 
   .qnaa {

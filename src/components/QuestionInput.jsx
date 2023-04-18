@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../styles/questionInput.css";
 import envelope from "../assets/envelope-solid.svg";
 import axios from "axios";
 
@@ -10,14 +9,13 @@ function QuestionInput() {
   };
 
   const sendQuestion = async () => {
-    console.log("전송버튼이 눌림")
-    await axios.post("url", { question: question })
-    .catch(function (error) {
-      console.log(error)
-    })
-    .then(function() {
-
-    });
+    console.log("전송버튼이 눌림");
+    await axios
+      .post("url", { question: question })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .then(function () {});
   };
 
   return (
@@ -36,7 +34,12 @@ function QuestionInput() {
               value={question}
               onChange={onQuestionChange}
             />
-            <img src={envelope} alt="전송" className="send-icon" onClick={sendQuestion}/>
+            <img
+              src={envelope}
+              alt="전송"
+              className="send-icon"
+              onClick={sendQuestion}
+            />
           </div>
         </div>
       </div>
