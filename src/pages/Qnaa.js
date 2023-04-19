@@ -10,8 +10,7 @@ export default function Qnaa() {
       {
         title: '난 이제 지쳤어요',
         answer: '땡벌!'
-      },
-      {
+      }, {
         title: '당신은 저에게 엄청난 것을 훔쳐갔습니다.',
         answer: '찾아가세요.'
       }, {
