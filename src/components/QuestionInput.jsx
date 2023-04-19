@@ -11,14 +11,17 @@ function QuestionInput() {
 
   const sendQuestion = async () => {
     console.log("전송버튼이 눌림");
+    // await axios
+    //   .post("http://192.168.43.147:8000/kody/question/", { title: question })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   })
+    //   .then(function (e) {
+    //     console.log(e);
+    //   });
     await axios
-      .post("http://192.168.43.147:8000/kody/question/", { title: question })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .then(function (e) {
-        console.log(e);
-      });
+      .get("http://192.168.43.147:8000/kody/question/")
+      .then((e) => console.log(e));
   };
 
   return (
