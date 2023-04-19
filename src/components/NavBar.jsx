@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../imgs/kody.png";
-import "../styles/nav.css";
 import { Link } from "react-router-dom";
 
 function NavBar() {

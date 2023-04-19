@@ -1,23 +1,24 @@
 import React, { useState } from "react";
-import "../styles/questionInput.css";
 import envelope from "../assets/envelope-solid.svg";
 import axios from "axios";
 
 function QuestionInput() {
   const [question, setQuestion] = useState("");
+  const [pushed, setPushed] = useState(false);
   const onQuestionChange = (e) => {
     setQuestion(e.target.value);
   };
 
   const sendQuestion = async () => {
-    console.log("전송버튼이 눌림")
-    // await axios.post("url", { question: question })
-    // .catch(function (error) {
-    //   console.log(error)
-    // })
-    // .then(function() {
-
-    // });
+    console.log("전송버튼이 눌림");
+    await axios
+      .post("http://192.168.43.147:8000/kody/question/", { title: question })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .then(function (e) {
+        console.log(e);
+      });
   };
 
   return (
@@ -34,9 +35,16 @@ function QuestionInput() {
               placeholder="질문을 입력해주세요"
               className="question-input-box"
               value={question}
-              onChange={onQuestionChange}
+              onChange={(e) => {
+                onQuestionChange(e);
+              }}
             />
-            <img src={envelope} alt="전송" className="send-icon" onClick={sendQuestion}/>
+            <img
+              src={envelope}
+              alt="전송"
+              className="send-icon"
+              onClick={sendQuestion}
+            />
           </div>
         </div>
       </div>
