@@ -94,13 +94,12 @@ body::-webkit-scrollbar-track {
 
       @keyframes move {
         0% {
-          margin-bottom: -300px;
+          margin-bottom: -100px;
         }
       }
 
       .firbox {
-        animation-name: move;
-        animation-duration: 1s;
+        animation: move 1s;
         font-family: 'Inter',
           sans-serif;
         font-size: 30px;
@@ -151,6 +150,8 @@ body::-webkit-scrollbar-track {
           right: 7vw;
           padding-top: 30px;
           width: 550px;
+          height: 200px;
+          object-fit: fill;
           z-index: 1;
         }
 
@@ -181,16 +182,53 @@ body::-webkit-scrollbar-track {
         display: flex;
         align-items: center;
 
+        @keyframes turn {
+          0% {
+            transform: rotate(0deg);
+          }
+
+          33% {
+            transform: rotate(-45deg);
+          }
+
+          66% {
+            transform: rotate(45deg);
+          }
+
+          100% {
+            transform: rotate(0deg);
+          }
+        }
+
         div {
           font-size: 35px;
           font-weight: bold;
+          margin-left: 30px;
+        }
+
+        .active {
+          animation-name: turn;
+          animation-duration: 0.8s;
+          animation-timing-function: ease;
         }
 
         img {
           width: 80px;
           object-fit: scale-down;
-          margin-right: 30px;
         }
+      }
+
+      @keyframes uping {
+        0% {
+          margin-top: -30px;
+          opacity: 0;
+        }
+      }
+
+      .act {
+        animation-name: uping;
+        animation-duration: 0.8s;
+        animation-timing-function: ease;
       }
 
       .exanswer {
@@ -270,6 +308,7 @@ body::-webkit-scrollbar-track {
       height: 142px;
       border: 0.5px solid #d9d9d9;
       border-radius: 20px;
+      margin-left: 30px;
     }
 
     .answer-input-box {
@@ -283,18 +322,19 @@ body::-webkit-scrollbar-track {
     }
 
     .answer-input-box {
+      font-family: "12LotteMartDreamMedium";
+
       &::placeholder {
-        font-family: "12LotteMartDreamMedium";
         font-style: normal;
         font-weight: 400;
         font-size: 20px;
         line-height: 100%;
         color: #8b8686;
       }
-    }
 
-    .answer-input-box:disabled {
-      background-color: white;
+      &:disabled {
+        background-color: white;
+      }
     }
 
     .nav-area {
@@ -352,43 +392,43 @@ body::-webkit-scrollbar-track {
 
     .question-area {
       display: flex;
-    }
 
-    .upper {
-      margin-top: 0px;
-      font-size: 95px;
-      font-family: 'Katibeh', cursive;
-
-    }
-
-    .question-box {
-      font-family: "12LotteMartDreamMedium";
-      width: 80%;
-      height: 200px;
-      border: 0.5px solid #d9d9d9;
-      border-radius: 20px;
-    }
-
-    .question-input-box {
-      margin-left: 10px;
-      margin-top: 20px;
-      width: 90%;
-      height: 70%;
-      border: none;
-      resize: none;
-      font-size: 20px;
-
-      &:focus {
-        outline: none;
+      .upper {
+        margin-top: 0px;
+        font-size: 95px;
+        font-family: 'Katibeh', cursive;
       }
 
-      &::placeholder {
+      .question-box {
         font-family: "12LotteMartDreamMedium";
-        font-style: normal;
-        font-weight: 400;
+        width: 80%;
+        height: 200px;
+        border: 0.5px solid #d9d9d9;
+        margin-left: 30px;
+        border-radius: 20px;
+      }
+
+      .question-input-box {
+        margin-left: 10px;
+        margin-top: 20px;
+        width: 90%;
+        height: 70%;
+        border: none;
+        resize: none;
         font-size: 20px;
-        line-height: 100%;
-        color: #8b8686;
+        font-family: "12LotteMartDreamMedium";
+
+        &:focus {
+          outline: none;
+        }
+
+        &::placeholder {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 100%;
+          color: #8b8686;
+        }
       }
     }
 

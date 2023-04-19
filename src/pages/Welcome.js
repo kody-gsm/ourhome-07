@@ -7,11 +7,18 @@ import bell_act from '../imgs/bell_act.png';
 
 export default function Welcome() {
   const [oning, setOning] = useState(false);
+  let scrolling = window.scrollY;
   useEffect(e => {
 
   }, []);
   window.onscroll = e => {
-    console.log(window.scrollY);
+    if (oning === false && window.scrollY - scrolling > 80) {
+      setOning(true);
+      setTimeout(() => {
+        setOning(false);
+      }, 1000);
+    }
+    scrolling = window.scrollY;
   };
   return <div className="welcome">
     <div className="header">
@@ -34,10 +41,10 @@ export default function Welcome() {
     </div>
     <div className="qna">
       <div className="title">
-        <img src={oning ? bell_act : bell} alt="bell" />
+        <img src={oning ? bell_act : bell} className={oning ? 'active' : 'div'} alt="bell" />
         <div>자주 묻는 질문들이에요!</div>
       </div>
-      <div className="exanswer">
+      <div className={"exanswer " + (oning ? 'act' : '')}>
         <div className="answer">Q. Kody에 대해서 궁금해요!</div>
         <div className="answer">Q. 웹은 어떤 동작으로 진행되나요?</div>
         <div className="answer">Q. kody 만의 동아리 운영방식이 궁금해요.</div>

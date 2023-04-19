@@ -4,6 +4,7 @@ import axios from "axios";
 
 function QuestionInput() {
   const [question, setQuestion] = useState("");
+  const [pushed, setPushed] = useState(false);
   const onQuestionChange = (e) => {
     setQuestion(e.target.value);
   };
