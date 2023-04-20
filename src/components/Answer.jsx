@@ -1,6 +1,6 @@
 import React from "react";
 
-function Answer(props) {
+function Answer({ isclicked }) {
   return (
     <div className="question">
       <div className="question-part">
@@ -8,14 +8,19 @@ function Answer(props) {
           답변하는데 시간이 걸릴 수 있어요 조금만 기다려주세요 !
         </p>
         <div className="question-area">
-          <h1 className="upper">A.</h1>
+          <h1 className="upper">A</h1>
+          <br />
+          <span className="under">.</span>
           <div className="answer-box">
-            <input
+            <div
               type="text"
-              placeholder=" . . ."
-              className="answer-input-box"
+              className="answer-input-box answer"
               disabled="disabled"
-            />
+            >
+              <span className={`${isclicked && "one"} dot`}>.</span>
+              <span className={`${isclicked && "two"} dot`}>.</span>
+              <span className={`${isclicked && "thr"} dot`}>.</span>
+            </div>
           </div>
         </div>
       </div>
