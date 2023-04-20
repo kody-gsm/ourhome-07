@@ -9,7 +9,7 @@ import Welcome from "./pages/Welcome";
 export default function App() {
   const [url, setUrl] = useState();
   useEffect(e => {
-    setUrl("http://192.168.43.147:8000");
+    setUrl("http://127.0.0.1:8000");
   }, []);
   return <div className="App">
     <BrowserRouter>
