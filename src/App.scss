@@ -35,6 +35,7 @@ body::-webkit-scrollbar-track {
 }
 
 .App {
+  overflow-x: hidden;
   font-family: "IBMPlexSansKR-Regular";
 
   p {
