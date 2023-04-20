@@ -1,20 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-function Answer(props) {
-  const [one, setOne] = useState(false);
-  const [two, setTwo] = useState(false);
-  const [thr, setThr] = useState(false);
-  useEffect((e) => {
-    // setTimeout(() => {
-    //   setOne(true);
-    // }, 1000);
-    // setTimeout(() => {
-    //   setTwo(true);
-    // }, 1000);
-    // setTimeout(() => {
-    //   setThr(true);
-    // }, 1000);
-  });
+function Answer({ isclicked }) {
   return (
     <div className="question">
       <div className="question-part">
@@ -31,9 +17,9 @@ function Answer(props) {
               className="answer-input-box answer"
               disabled="disabled"
             >
-              <span className={`${one && "dot"} one`}>.</span>
-              <span className={`${two && "dot"} two`}>.</span>
-              <span className={`${thr && "dot"} thr`}>.</span>
+              <span className={`${isclicked && "one"} dot`}>.</span>
+              <span className={`${isclicked && "two"} dot`}>.</span>
+              <span className={`${isclicked && "thr"} dot`}>.</span>
             </div>
           </div>
         </div>

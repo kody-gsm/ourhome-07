@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import envelope from "../assets/envelope-solid.svg";
 import axios from "axios";
 
-function QuestionInput() {
+function QuestionInput({ isclicked }) {
   const [question, setQuestion] = useState("");
   const [pushed, setPushed] = useState(false);
   const [res, setRes] = useState("Loading");
@@ -21,6 +21,7 @@ function QuestionInput() {
 
   const sendQuestion = async () => {
     console.log("전송버튼이 눌림");
+    isclicked(true);
     await axios
       .post("http://192.168.43.147:8000/kody/question", { title: question })
       .then(function (e) {
@@ -44,22 +45,25 @@ function QuestionInput() {
   };
 
   const resQustion = async () => {
+    isclicked(true);
     console.log("전송버튼이 눌림");
-    let a = [];
-    let b = [];
+    let answer = [];
+    let question = [];
+    await axios.get("http://192.168.43.147:8000/kody/answer").then((e) => {
+      question = e.data;
+      console.log(question.slice(0, max(question)), "b");
+      localStorage.setItem("q", JSON.parse(question));
+    });
     await axios
       .post("http://192.168.43.147:8000/kody/answer")
       .then((e) => {
-        a = e.data;
-        console.log(a.slice(0, max(a)));
+        answer = e.data;
+        console.log(answer.slice(0, max(answer)), "a");
+        localStorage.setItem("a", JSON.parse(answer));
       })
       .catch((e) => {
         console.log(e);
       });
-    await axios.get("http://192.168.43.147:8000/kody/answer").then((e) => {
-      b = e.data;
-      console.log(b.slice(0, max(b)));
-    });
   };
 
   return (
