@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import kodylogo from "../imgs/kody.png";
 
 export default function Qnaa({ url }) {
+  axios.defaults.withCredentials = true;
   const [a, setA] = useState([]);
   const [alen, setAlen] = useState([]);
   const [currentpage, setCurrentpage] = useState(0);

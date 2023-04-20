@@ -3,6 +3,7 @@ import envelope from "../assets/envelope-solid.svg";
 import axios from "axios";
 
 function QuestionInput({ isclicked, url }) {
+  axios.defaults.withCredentials = true;
   const [question, setQuestion] = useState("");
   const [pushed, setPushed] = useState(false);
   const [res, setRes] = useState("Loading");
