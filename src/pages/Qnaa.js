@@ -50,7 +50,7 @@ export default function Qnaa({ url }) {
     await axios
       .get(`${url}/kody/answer`).then((e) => {
         question = e.data;
-        console.log(question.slice(min(question, 'q'), max(question, 'q')), "q");
+        // console.log(question.slice(min(question, 'q'), max(question, 'q')), "q");
       }).catch(e => {
         console.log(e);
       });
@@ -58,10 +58,10 @@ export default function Qnaa({ url }) {
       .post(`${url}/kody/answer`)
       .then((e) => {
         answer = e.data;
-        console.log(answer.slice(min(answer, 'a'), max(answer, 'a')), "a");
+        // console.log(answer.slice(min(answer, 'a'), max(answer, 'a')), "a");
       })
       .catch((e) => {
-        console.log(e.data);
+        console.log(e);
       });
     for (let i = min(question, 'q'); i < max(question, 'q'); i++) {
       for (let j = min(answer, 'a'); j < max(answer, 'a'); j++) {
@@ -79,7 +79,6 @@ export default function Qnaa({ url }) {
   };
   async function pushes(position) {
     const a = await resQustion();
-    console.log(a);
     let crntposi = a.length - (5 * position);
     let topush = [
       (crntposi - 1 >= 0) && a[crntposi - 1],
