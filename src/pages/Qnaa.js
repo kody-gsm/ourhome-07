@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import kodylogo from "../imgs/kody.png";
 
@@ -5,34 +6,51 @@ export default function Qnaa() {
   const [a, setA] = useState([]);
   const [alen, setAlen] = useState([]);
   const [currentpage, setCurrentpage] = useState(0);
-  function pushes(position) {
-    const a = [
-      {
-        title: '난 이제 지쳤어요',
-        answer: '땡벌!'
-      }, {
-        title: '당신은 저에게 엄청난 것을 훔쳐갔습니다.',
-        answer: '찾아가세요.'
-      }, {
-        title: '미안하다 이거 보여주려고 어그로 끌었다 나루토 사스케 싸움 ㄹㅇ실화냐?',
-        answer: '실화 아닙니다.'
-      }, {
-        title: "저는 sw개발학과인데 iot에 분야를 생각하고 있어요.",
-        answer: '언제든지 환영입니다.'
-      }, {
-        title: "저는 웹 프로젝트를 주로 하고 싶어요.",
-        answer: '서브 프로젝트로 웹 프로젝트를 기획중입니다.'
-      }, {
-        title: '선배와 자주 이야기 하고 싶어요.',
-        answer: '여기 오면 많이 하게 됩니다.'
-      }, {
-        title: '놀라운 사실이 있는데 안 가르쳐줄거에요.',
-        answer: '그럼 알리주지 마세요.'
-      }, {
-        title: '맙소사 당장 제 공중제비를 멈추십시오!',
-        answer: '병원을 가세요.'
-      },
-    ];
+
+  const max = (a) => {
+    let max = 0;
+    for (let i = 0; i < a.length; i++) {
+      if (a[i].id > max) {
+        max = a[i].id;
+      }
+    }
+    return max;
+  };
+
+  const resQustion = async () => {
+    let answer = [];
+    let question = [];
+    let returns = [];
+    await axios.get("http://192.168.43.147:8000/kody/answer").then((e) => {
+      question = e.data;
+      console.log(question.slice(0, max(question)), "b");
+    });
+    await axios
+      .post("http://192.168.43.147:8000/kody/answer")
+      .then((e) => {
+        answer = e.data;
+        console.log(answer.slice(0, max(answer)), "a");
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    for (let i = 0; i < max(question); i++) {
+      for (let j = 0; j < max(answer); j++) {
+        if (question[i].id === answer[j].id) {
+          returns.push({
+            id: question[i].id,
+            title: question[i].title,
+            answer: answer[j].answer,
+          });
+        }
+      }
+    }
+    localStorage.setItem("answers", JSON.stringify(returns));
+    return JSON.parse(localStorage.getItem("answers"));
+  };
+  async function pushes(position) {
+    const a = await resQustion();
+    console.log(a);
     let crntposi = a.length - (5 * position);
     let topush = [
       (crntposi - 1 >= 0) && a[crntposi - 1],

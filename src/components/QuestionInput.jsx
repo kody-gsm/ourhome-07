@@ -20,7 +20,6 @@ function QuestionInput({ isclicked }) {
   };
 
   const sendQuestion = async () => {
-    console.log("전송버튼이 눌림");
     isclicked(true);
     await axios
       .post("http://192.168.43.147:8000/kody/question", { title: question })
@@ -46,24 +45,33 @@ function QuestionInput({ isclicked }) {
 
   const resQustion = async () => {
     isclicked(true);
-    console.log("전송버튼이 눌림");
     let answer = [];
     let question = [];
+    let returns = [];
     await axios.get("http://192.168.43.147:8000/kody/answer").then((e) => {
       question = e.data;
-      console.log(question.slice(0, max(question)), "b");
-      localStorage.setItem("q", JSON.parse(question));
     });
     await axios
       .post("http://192.168.43.147:8000/kody/answer")
       .then((e) => {
         answer = e.data;
-        console.log(answer.slice(0, max(answer)), "a");
-        localStorage.setItem("a", JSON.parse(answer));
       })
       .catch((e) => {
         console.log(e);
       });
+    for (let i = 0; i < max(question); i++) {
+      for (let j = 0; j < max(answer); j++) {
+        if (question[i].id === answer[j].id) {
+          returns.push({
+            id: question[i].id,
+            title: question[i].title,
+            answer: answer[j].answer,
+          });
+        }
+      }
+    }
+    localStorage.setItem("answers", JSON.stringify(returns));
+    console.log(JSON.parse(localStorage.getItem("answers")));
   };
 
   return (
