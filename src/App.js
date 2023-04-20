@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import './App.scss';
@@ -7,7 +8,8 @@ import Qnaq from "./pages/Qnaq";
 import Welcome from "./pages/Welcome";
 
 export default function App() {
-  const url = "http://192.168.43.147:8000";
+  axios.defaults.withCredentials = true;
+  const url = "https://port-0-kody-e9btb72blgp2nnbr.sel3.cloudtype.app";
   return <div className="App">
     <BrowserRouter>
       <Routes>
