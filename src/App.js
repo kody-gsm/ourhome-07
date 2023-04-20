@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import './App.scss';
 import Landing from "./pages/Landing";
@@ -7,14 +7,18 @@ import Qnaq from "./pages/Qnaq";
 import Welcome from "./pages/Welcome";
 
 export default function App() {
+  const [url, setUrl] = useState();
+  useEffect(e => {
+    setUrl("http://192.168.43.147:8000");
+  }, []);
   return <div className="App">
     <BrowserRouter>
       <Routes>
         <Route path="*" element={<Navigate to={'/'} replace />} />
         <Route path="/" element={<Landing />} />
         <Route path="/welcome" element={<Welcome />} />
-        <Route path="/qna-questions" element={<Qnaq />} />
-        <Route path="/qna-answers" element={<Qnaa />} />
+        <Route path="/qna-questions" element={<Qnaq url={url} />} />
+        <Route path="/qna-answers" element={<Qnaa url={url} />} />
       </Routes>
     </BrowserRouter>
   </div>;

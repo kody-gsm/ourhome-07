@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import kodylogo from "../imgs/kody.png";
 
-export default function Qnaa() {
+export default function Qnaa({ url }) {
   const [a, setA] = useState([]);
   const [alen, setAlen] = useState([]);
   const [currentpage, setCurrentpage] = useState(0);
@@ -21,12 +21,12 @@ export default function Qnaa() {
     let answer = [];
     let question = [];
     let returns = [];
-    await axios.get("http://192.168.43.147:8000/kody/answer").then((e) => {
+    await axios.get(`${url}/kody/answer`).then((e) => {
       question = e.data;
       console.log(question.slice(0, max(question)), "b");
     });
     await axios
-      .post("http://192.168.43.147:8000/kody/answer")
+      .post(`${url}/kody/answer`)
       .then((e) => {
         answer = e.data;
         console.log(answer.slice(0, max(answer)), "a");
@@ -70,6 +70,7 @@ export default function Qnaa() {
   }
   useEffect(e => {
     pushes(0);
+    //eslint-disable-next-line
   }, []);
   return <div className="qnaa">
     <div className="header">
