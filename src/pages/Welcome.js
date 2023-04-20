@@ -32,7 +32,7 @@ export default function Welcome() {
       <div className="secbox">
         <div className="tb">동아리에 대한 자세한 내용이<br />알고 싶나요?</div>
         <img className="img" src={textbox} alt={'textbox'} />
-        <a href="https://www.notion.so/kody-team/KODY-9216cc8e50cb4705823d4f87393addb6?pvs=4">Kody notion으로 가기
+        <a href="https://kody-team.notion.site/KODY-9216cc8e50cb4705823d4f87393addb6">Kody notion으로 가기
           <img src={arrow} alt='arrow' /> </a>
       </div>
     </div>
