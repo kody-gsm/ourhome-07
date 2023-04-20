@@ -22,7 +22,7 @@ function QuestionInput({ isclicked, url }) {
   const sendQuestion = async () => {
     isclicked(true);
     await axios
-      .post(`${url}/kody/question`, { title: question })
+      .post(`${url}/kody/create`, { title: question })
       .then(function (e) {
         console.log(e);
         settingsuccess(e);

@@ -7,36 +7,65 @@ export default function Qnaa({ url }) {
   const [alen, setAlen] = useState([]);
   const [currentpage, setCurrentpage] = useState(0);
 
-  const max = (a) => {
+  const max = (a, type) => {
     let max = 0;
     for (let i = 0; i < a.length; i++) {
-      if (a[i].id > max) {
-        max = a[i].id;
+      if (type === 'q') {
+        if (a[i].id > max) {
+          max = a[i].id;
+        }
+      }
+      else if (type === 'a') {
+        if (a[i].question > max) {
+          max = a[i].question;
+        }
       }
     }
+    // console.log('max', max, type);
     return max;
   };
+
+  const min = (a, type) => {
+    let min = 100;
+    for (let i = 0; i < a.length; i++) {
+      if (type === 'q') {
+        if (a[i].id < min) {
+          min = a[i].id;
+        }
+      }
+      else if (type === 'a') {
+        if (a[i].question < min) {
+          min = a[i].question;
+        }
+      }
+      // console.log('min', min, type);
+    }
+    return min;
+  }
 
   const resQustion = async () => {
     let answer = [];
     let question = [];
     let returns = [];
-    await axios.get(`${url}/kody/answer`).then((e) => {
-      question = e.data;
-      console.log(question.slice(0, max(question)), "b");
-    });
+    await axios
+      .get(`${url}/kody/answer`).then((e) => {
+        question = e.data;
+        console.log(question.slice(min(question, 'q'), max(question, 'q')), "q");
+      }).catch(e => {
+        console.log(e);
+      });
     await axios
       .post(`${url}/kody/answer`)
       .then((e) => {
         answer = e.data;
-        console.log(answer.slice(0, max(answer)), "a");
+        console.log(answer.slice(min(answer, 'a'), max(answer, 'a')), "a");
       })
       .catch((e) => {
-        console.log(e);
+        console.log(e.data);
       });
-    for (let i = 0; i < max(question); i++) {
-      for (let j = 0; j < max(answer); j++) {
-        if (question[i].id === answer[j].id) {
+    for (let i = min(question, 'q'); i < max(question, 'q'); i++) {
+      for (let j = min(answer, 'a'); j < max(answer, 'a'); j++) {
+        if (question[i].id === answer[j].question) {
           returns.push({
             id: question[i].id,
             title: question[i].title,
@@ -83,8 +112,8 @@ export default function Qnaa({ url }) {
       <div className="boxes">
         {a.map((i, n) => {
           return i.title && <div className="answerbox" key={n}>
-            <div className="div"><b>Q.</b><div className="likeinput"><span>{i.title}</span></div></div>
-            <div className="div"><b>A.</b><div className="likeinput"><span>{i.answer}</span></div></div>
+            <div className="div"><b>Q.</b><div className="likeinput"><span>&nbsp;&nbsp;&nbsp;{i.title}</span></div></div>
+            <div className="div"><b>A.</b><div className="likeinput"><span>&nbsp;&nbsp;&nbsp;{i.answer}</span></div></div>
           </div>;
         })}
       </div>
