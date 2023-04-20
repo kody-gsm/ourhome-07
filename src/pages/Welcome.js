@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import kodylogo from '../imgs/kody.png';
 import textbox from '../imgs/textbox.png';
 import arrow from '../imgs/arrow.png';
@@ -8,9 +8,6 @@ import bell_act from '../imgs/bell_act.png';
 export default function Welcome() {
   const [oning, setOning] = useState(false);
   let scrolling = window.scrollY;
-  useEffect(e => {
-
-  }, []);
   window.onscroll = e => {
     if (oning === false && window.scrollY - scrolling > 80) {
       setOning(true);
@@ -41,7 +38,14 @@ export default function Welcome() {
     </div>
     <div className="qna">
       <div className="title">
-        <img src={oning ? bell_act : bell} className={oning ? 'active' : 'div'} alt="bell" />
+        <img src={oning ? bell_act : bell} className={oning ? 'active' : 'div'} onClick={e => {
+          if (oning === false) {
+            setOning(true);
+            setTimeout(() => {
+              setOning(false);
+            }, 1000);
+          }
+        }} alt="bell" />
         <div>자주 묻는 질문들이에요!</div>
       </div>
       <div className={"exanswer " + (oning ? 'act' : '')}>
