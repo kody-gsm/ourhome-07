@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import envelope from "../assets/envelope-solid.svg";
 import axios from "axios";
 
-function QuestionInput({ isclicked }) {
+function QuestionInput({ isclicked, url }) {
   const [question, setQuestion] = useState("");
   const [pushed, setPushed] = useState(false);
   const [res, setRes] = useState("Loading");
@@ -22,7 +22,7 @@ function QuestionInput({ isclicked }) {
   const sendQuestion = async () => {
     isclicked(true);
     await axios
-      .post("http://192.168.43.147:8000/kody/question", { title: question })
+      .post(`${url}/kody/question`, { title: question })
       .then(function (e) {
         console.log(e);
         settingsuccess(e);
@@ -48,11 +48,11 @@ function QuestionInput({ isclicked }) {
     let answer = [];
     let question = [];
     let returns = [];
-    await axios.get("http://192.168.43.147:8000/kody/answer").then((e) => {
+    await axios.get(`${url}/kody/answer`).then((e) => {
       question = e.data;
     });
     await axios
-      .post("http://192.168.43.147:8000/kody/answer")
+      .post(`${url}/kody/answer`)
       .then((e) => {
         answer = e.data;
       })
