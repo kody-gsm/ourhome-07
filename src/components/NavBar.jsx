@@ -9,12 +9,9 @@ function NavBar() {
         <Link to="/welcome">
           <img src={logo} className="logo-img" alt="logo" />
         </Link>
-        <button
-          className="btn-qna-more"
-          onClick={() => (window.location.href = "/qna-answers")}
-        >
-          질문들 모아보기
-        </button>
+        <Link to="/qna-answers">
+          <button className="btn-qna-more">질문들 모아보기</button>
+        </Link>
       </div>
       <hr />
     </div>

@@ -25,7 +25,6 @@ function QuestionInput({ isclicked, url }) {
     await axios
       .post(`${url}/kody/create`, { title: question })
       .then(function (e) {
-        console.log(e);
         settingsuccess(e);
       })
       .catch(function (error) {
