@@ -4,6 +4,7 @@ import textbox from '../imgs/textbox.png';
 import arrow from '../imgs/arrow.png';
 import bell from '../imgs/bell.png';
 import bell_act from '../imgs/bell_act.png';
+import { Link } from "react-router-dom";
 
 export default function Welcome() {
   const [oning, setOning] = useState(false);
@@ -62,7 +63,7 @@ export default function Welcome() {
       <div className="bottom">
         <div className="asdf">
           <span>직접 질문하고 답변을 받고 싶다면?</span><br />
-          <a href="/qna-answers"><button>Q&A 하러 가기</button></a>
+          <Link to={'/qna-answers'}><button>Q&A 하러 가기</button></Link>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import kodylogo from "../imgs/kody.png";
 
 export default function Qnaa({ url }) {
@@ -104,7 +105,7 @@ export default function Qnaa({ url }) {
   return <div className="qnaa">
     <div className="header">
       <img className="kodylogo" src={kodylogo} alt="kodylogo" onClick={e => window.location.href = 'welcome'} />
-      <a href="qna-questions"><button>Q&A 하러가기</button></a>
+      <Link to={'/qna-questions'}><button>Q&A 하러가기</button></Link>
     </div>
     <hr />
     <div className="main">

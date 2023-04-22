@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate, Link } from "react-router-dom";
 import './App.scss';
 import Landing from "./pages/Landing";
 import Qnaa from "./pages/Qnaa";
@@ -39,7 +39,7 @@ function Detail() {
     </div>}
     <div className="main">
       <h4>
-        <a href="/">⬅ 이전페이지로 돌아가기</a>
+        <Link to={'/'}>⬅ 이전페이지로 돌아가기</Link>
       </h4>
       <div>
         <h1>KODY</h1>
