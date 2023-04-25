@@ -9,39 +9,39 @@ export default function Qnaa({ url }) {
   const [alen, setAlen] = useState([]);
   const [currentpage, setCurrentpage] = useState(0);
 
-  const max = (a, type) => {
-    let max = 0;
-    for (let i = 0; i < a.length; i++) {
-      if (type === 'q') {
-        if (a[i].id > max) {
-          max = a[i].id;
-        }
-      }
-      else if (type === 'a') {
-        if (a[i].question > max) {
-          max = a[i].question;
-        }
-      }
-    }
-    return max;
-  };
+  // const max = (a, type) => {
+  //   let max = 0;
+  //   for (let i = 0; i < a.length; i++) {
+  //     if (type === 'q') {
+  //       if (a[i].id > max) {
+  //         max = a[i].id;
+  //       }
+  //     }
+  //     else if (type === 'a') {
+  //       if (a[i].question > max) {
+  //         max = a[i].question;
+  //       }
+  //     }
+  //   }
+  //   return max;
+  // };
 
-  const min = (a, type) => {
-    let min = 1000;
-    for (let i = 0; i < a.length; i++) {
-      if (type === 'q') {
-        if (a[i].id < min) {
-          min = a[i].id;
-        }
-      }
-      else if (type === 'a') {
-        if (a[i].question < min) {
-          min = a[i].question;
-        }
-      }
-    }
-    return min;
-  }
+  // const min = (a, type) => {
+  //   let min = 1000;
+  //   for (let i = 0; i < a.length; i++) {
+  //     if (type === 'q') {
+  //       if (a[i].id < min) {
+  //         min = a[i].id;
+  //       }
+  //     }
+  //     else if (type === 'a') {
+  //       if (a[i].question < min) {
+  //         min = a[i].question;
+  //       }
+  //     }
+  //   }
+  //   return min;
+  // }
 
   const resQustion = async () => {
     let answer = [];
