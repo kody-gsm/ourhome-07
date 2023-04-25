@@ -23,12 +23,11 @@ export default function Qnaa({ url }) {
         }
       }
     }
-    // console.log('max', max, type);
     return max;
   };
 
   const min = (a, type) => {
-    let min = 100;
+    let min = 1000;
     for (let i = 0; i < a.length; i++) {
       if (type === 'q') {
         if (a[i].id < min) {
@@ -40,7 +39,6 @@ export default function Qnaa({ url }) {
           min = a[i].question;
         }
       }
-      // console.log('min', min, type);
     }
     return min;
   }
@@ -52,7 +50,6 @@ export default function Qnaa({ url }) {
     await axios
       .get(`${url}/kody/answer`).then((e) => {
         question = e.data;
-        // console.log(question.slice(min(question, 'q'), max(question, 'q')), "q");
       }).catch(e => {
         console.log(e);
       });
@@ -60,13 +57,12 @@ export default function Qnaa({ url }) {
       .post(`${url}/kody/answer`)
       .then((e) => {
         answer = e.data;
-        // console.log(answer.slice(min(answer, 'a'), max(answer, 'a')), "a");
       })
       .catch((e) => {
         console.log(e);
       });
-    for (let i = min(question, 'q'); i < max(question, 'q'); i++) {
-      for (let j = min(answer, 'a'); j < max(answer, 'a'); j++) {
+    for (let i = 0; i < question.length; i++) {
+      for (let j = 0; j < answer.length; j++) {
         if (question[i].id === answer[j].question) {
           returns.push({
             id: question[i].id,
