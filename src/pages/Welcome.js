@@ -31,7 +31,7 @@ export default function Welcome() {
         <img src={textbox} alt={'textbox'} />
       </div>
       <div className="secbox">
-        <div className="tb">동아리에 대한 자세한 내용이<br />알고 싶나요?</div>
+        <div className="tb"><span>동아리에 대한 자세한 내용이</span><br /><span>알고 싶나요?</span></div>
         <img className="img" src={textbox} alt={'textbox'} />
         <a href="https://kody-team.notion.site/KODY-9216cc8e50cb4705823d4f87393addb6">Kody notion으로 가기
           <img src={arrow} alt='arrow' /> </a>

@@ -90,12 +90,12 @@ function Detail() {
         <h3>👋🏻 Kody의 첫 시작을 함께해주세요!</h3>
         <p>Kody에 대해 궁금한 것이 있으면 Discord: <span className="mentioned" onClick={e => {
           try {
-            navigator.clipboard.writeText('오영기#1864');
+            navigator.clipboard.writeText('진건희#0677');
             toast();
           } catch (e) {
             console.log(e);
           }
-        }}>오영기#1864</span> 에게 연락해주세요!</p>
+        }}>진건희#0677</span> 에게 연락해주세요!</p>
       </div><br />
     </div>
   </div>;
