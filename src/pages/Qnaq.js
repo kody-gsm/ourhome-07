@@ -7,6 +7,7 @@ export default function Qnaq() {
   return (
     <div className="qnaq">
       <NavBar />
+      <QuestionInput />
       <Answer />
     </div>
   );
