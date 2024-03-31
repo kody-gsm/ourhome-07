@@ -5,6 +5,6 @@ import kodylogo from "../imgs/kody.png";
 
 export default function Qnaa() {
   return(
-
+    <div></div>
   );
 }

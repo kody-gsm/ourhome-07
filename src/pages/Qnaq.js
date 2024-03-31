@@ -5,6 +5,9 @@ import Answer from "../components/Answer"
 
 export default function Qnaq() {
   return (
-
+    <div className="qnaq">
+      <NavBar />
+      <Answer />
+    </div>
   );
 }
