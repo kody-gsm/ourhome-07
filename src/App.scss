@@ -375,33 +375,6 @@ body::-webkit-scrollbar-track {
         }
       }
 
-      .dot {
-        font-size: 180px;
-        position: absolute;
-        margin-top: -70px;
-        animation-duration: 1s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        opacity: 0;
-      }
-
-      .one {
-        opacity: 1;
-        animation-name: one;
-      }
-
-      .two {
-        animation-name: two;
-        opacity: 1;
-        margin-left: 40px;
-      }
-
-      .thr {
-        margin-left: 80px;
-        opacity: 1;
-        animation-name: thr;
-      }
-
       &::placeholder {
         font-style: normal;
         font-weight: 400;
