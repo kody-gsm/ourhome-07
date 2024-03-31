@@ -8,7 +8,7 @@ function Answer() {
           답변하는데 시간이 걸릴 수 있어요 조금만 기다려주세요 !
         </p>
         <div className="question-area">
-          <h1>A.</h1>
+          <h1 className="upper">A .</h1>
           <div className="answer-box">
             <div
               type="text"
