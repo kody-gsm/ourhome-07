@@ -3,7 +3,9 @@ import envelope from "../assets/envelope-solid.svg";
 import axios from "axios";
 
 function QuestionInput() {
-  
+  return(
+
+  );
 }
 
 export default QuestionInput;
