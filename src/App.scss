@@ -380,6 +380,7 @@ body::-webkit-scrollbar-track {
 
     .question {
       margin-top: 60px;
+      margin-left: 23px;
 
       .popup {
         .background {
@@ -624,4 +625,18 @@ body::-webkit-scrollbar-track {
       }
     }
   }
+}
+
+.btn-answer{
+  width: 80px;
+  height: 40px;
+  margin-left: 50vw;
+  margin-top: 5vh;
+  background-color: #565758;
+  color: #ffffff;
+  border-radius: 5px;
+  border: 0;
+  outline: 0;
+  font-weight: 500;
+  cursor: pointer;
 }

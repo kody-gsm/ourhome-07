@@ -24,6 +24,7 @@ function QuestionInput() {
               placeholder="질문을 입력해주세요"
               className="question-input-box" 
               />
+              <button className="btn-answer">보내기</button>
           </div>
         </div>
       </div>
