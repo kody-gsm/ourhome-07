@@ -7,8 +7,6 @@ import Answer from "../components/Answer";
 
 export default function Welcome() {
   return(
-    <div>
-      <Answer></Answer>
-    </div>
+    <div></div>
   );
 }
