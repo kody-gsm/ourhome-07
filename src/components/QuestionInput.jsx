@@ -16,7 +16,7 @@ function QuestionInput() {
           <h1
             className="upper"
             >
-          Q .
+          Q . 
           </h1>
           <div className="question-box">
             <textarea
