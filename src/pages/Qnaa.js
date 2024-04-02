@@ -13,8 +13,7 @@ export default function Qnaa() {
       <hr />
       <div className="main">
         <h2>자주 묻는 질문의 답변이에요!</h2>
-      </div>
+      </div>  
     </div>
-    
   );
 }
