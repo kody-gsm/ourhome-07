@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Routes, Route, BrowserRouter, Navigate, Link } from "react-router-dom";
 import './App.scss';
+import './welcome.scss';
 import Qnaa from "./pages/Qnaa";
 import Qnaq from "./pages/Qnaq";
 import Welcome from "./pages/Welcome";
