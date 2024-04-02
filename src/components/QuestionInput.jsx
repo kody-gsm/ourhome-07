@@ -14,7 +14,7 @@ function QuestionInput() {
       
       setQuestion("");
     } catch (error) {
-      console.error('에러', error);
+      console.error('되겠냐?!', error);
       // 오류 처리
     }
   };
