@@ -14,7 +14,7 @@ function QuestionInput() {
       
       setQuestion("");
     } catch (error) {
-      console.error('Error occurred while sending data:', error);
+      console.error('에러', error);
       // 오류 처리
     }
   };
