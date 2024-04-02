@@ -31,7 +31,7 @@ function AdminAnswer() {
         const response = await axios.get('백엔드 서버의 URL');
         setAdmindata(response.admindata);
       } catch (error) {
-        console.error('에러 뜸', error);
+        console.error('아잇 싯팔', error);
       }
     };
 
