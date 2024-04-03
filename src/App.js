@@ -6,6 +6,7 @@ import './welcome.scss';
 import Qnaa from "./pages/Qnaa";
 import Qnaq from "./pages/Qnaq";
 import Welcome from "./pages/Welcome";
+import AdminAnswer from "./pages/AdminAnswer";
 
 export default function App() {
   axios.defaults.withCredentials = true;
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/" element={<Welcome />} />
         <Route path="/qna-questions" element={<Qnaq url={url} />} />
         <Route path="/qna-answers" element={<Qnaa url={url} />} />
+        <Route path="/qna-answers-admin" element={<AdminAnswer url={url} />} />
       </Routes>
     </BrowserRouter>
   </div>;
