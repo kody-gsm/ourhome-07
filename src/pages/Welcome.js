@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import kodylogo from '../imgs/kody.png';
 import textbox from '../imgs/textbox.png';
 import bell from '../imgs/bell.png';
+import sendSuccess from '../imgs/sendSuccess.png';
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -16,14 +17,14 @@ function GetQnAData(prop){
     )
     })
   return(
-    data
+    "Q. "+data
   )
 }
 
 function ManyQuestion(num){
 
   return(
-    <div className="ManyQuestion" onClick={()=>(window.location.href = '/qna-answers')}>
+    /*<div className="ManyQuestion" onClick={()=>(window.location.href = '/qna-answers')}>
       <span className="ManyQuestionContent">
         <span className="ManyQuestionQnAContainer">
           <span className="ManyQuestionQnATextBox">
@@ -43,6 +44,11 @@ function ManyQuestion(num){
             {GetQnAData(num)}
           </span>
         </span>
+      </span>
+    </div>*/
+    <div className="QuestionContainer" onClick={()=>(window.location.href = '/qna-answers')}>
+      <span className="QuestionTexts">
+        {GetQnAData()}
       </span>
     </div>
   )
