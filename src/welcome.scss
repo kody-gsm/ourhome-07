@@ -356,14 +356,15 @@ body{
     bottom: 0px;
     min-width: 230px;
 }
+
 .GotoQnAText{
     position: absolute;
     display: flex;
     width: 80%;
     height: 40%;
-    top: 0px;
+    top: 50px;
     left: 10%;
-    color: grey;
+    color: #565758;
     align-items: center;
     justify-items: center;
     justify-content: center;
@@ -375,8 +376,8 @@ body{
     position: absolute;
     display: flex;
     width: 80%;
-    height: 50%;
-    border-radius: 20px;
+    height: 40%;
+    border-radius: 15px;
     color: white;
     background-color: gray;
     bottom: 0px;
