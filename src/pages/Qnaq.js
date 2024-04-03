@@ -9,9 +9,9 @@ export default function Qnaq() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    axios.get("백엔드 url(ex:/api/user/isAdmin?pw=53875387)")
+    axios.get("백엔드 url(ex:/api/user/isAdmin?pw=hello)")
       .then(response => {
-        setIsAdmin(response.data.PW === "53875387");
+        setIsAdmin(response.data.PW === hello);
       })
       .catch(error => {
         console.error("어드민 안 줘", error);

@@ -8,6 +8,11 @@ function QuestionInput() {
   const [questionSendPage, setQuestionSendPage] = useState(<span></span>);
   
   const handleSubmit = async () => {
+    if (!question.trim()) {
+      
+      return;
+    }
+
     try {
       
       const response = await axios.post('url', { question });
@@ -22,7 +27,7 @@ function QuestionInput() {
       );
 
     } catch (error) {
-      console.error('않이 그거 그럿게 하는거 아님데~', error);
+      console.error('되겠냐?!', error);
       // 오류 처리
       setQuestionSendPage(
         <span className="sendBack" onClick={()=>(setQuestionSendPage(<span/>))}>
