@@ -9,7 +9,7 @@ export default function Qnaq() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    axios.get("/api/user/isAdmin")
+    axios.get("백엔드 url(ex:/api/user/isAdmin)")
       .then(response => {
         setIsAdmin(response.data.isAdmin);
       })
