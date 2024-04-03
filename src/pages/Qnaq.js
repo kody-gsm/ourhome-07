@@ -10,9 +10,9 @@ export default function Qnaq() {
       <NavBar />
       <QuestionInput />
       <Answer />
-      <Link to="/qna-answers-admin">
+      {/* <Link to="/qna-answers-admin">
       <button className="Admin">어드민</button>
-      </Link>
+      </Link> */}
     </div>
   );
 }
