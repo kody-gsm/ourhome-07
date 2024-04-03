@@ -640,3 +640,26 @@ body::-webkit-scrollbar-track {
   font-weight: 500;
   cursor: pointer;
 }
+
+.sendImg{
+  position: absolute;
+  display: flex;
+  width: 50vw;
+  height: 50vh;
+  object-fit: fill;
+}
+
+.sendBack{
+  position: absolute;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #56575876;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  left: 0px;
+  top: 0px;
+  transition: 1s;
+}

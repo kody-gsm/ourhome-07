@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import sendFail from "../imgs/sendFail.png";
+import sendSuccess from "../imgs/sendSuccess.png";
 
 function QuestionInput() {
   const [question, setQuestion] = useState("");
-
+  const [questionSendPage, setQuestionSendPage] = useState(<span></span>);
   
   const handleSubmit = async () => {
     try {
@@ -13,15 +15,30 @@ function QuestionInput() {
 
       
       setQuestion("");
+      setQuestionSendPage(
+        <span className="sendBack" onClick={()=>(setQuestionSendPage(<span/>))}>
+          <img className="sendImg" src={sendSuccess}></img>
+        </span>
+      );
+
     } catch (error) {
-      console.error('되겠냐?!', error);
+      console.error('않이 그거 그럿게 하는거 아님데~', error);
       // 오류 처리
+      setQuestionSendPage(
+        <span className="sendBack" onClick={()=>(setQuestionSendPage(<span/>))}>
+          <img className="sendImg" src={sendFail}></img>
+        </span>
+      );
+
     }
   };
 
-  return (
+
+  return(
     <div className="question">
-      <div className="popup"></div>
+      <div className="popup">
+        {questionSendPage}
+      </div>
       <div className="question-part">
         <p className="attention-ment">
           한 번 작성된 내용은 수정이 불가하니 신중히 작성해주세요 ㅠ_ㅠ
@@ -43,7 +60,7 @@ function QuestionInput() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default QuestionInput;
