@@ -5,14 +5,24 @@ import QuestionInput from "../components/QuestionInput";
 import Answer from "../components/Answer"
 
 export default function Qnaq() {
+
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    setIsAdmin(true);
+  }, []);
+
+
   return (
     <div className="qnaq">
       <NavBar />
       <QuestionInput />
       <Answer />
-      {/* <Link to="/qna-answers-admin">
-      <button className="Admin">어드민</button>
-      </Link> */}
+      {isAdmin && (
+        <Link to="/qna-answers-admin">
+          <button className="Admin">어드민</button>
+        </Link>
+      )}
     </div>
   );
 }
