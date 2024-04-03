@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NavBar from "../components/NavBar";
-import Answer from "../components/Answer"
-import QuestionInput from "../components/QuestionInput";
 
 function AdminAnswer() {
 
