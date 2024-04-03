@@ -39,6 +39,7 @@ function AdminAnswer() {
   return(
     <div className="qnaq">
       <NavBar />
+      
       <div className="question">
       <div className="question-part">
         <p className="attention-ment">
