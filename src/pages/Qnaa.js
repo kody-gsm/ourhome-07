@@ -9,7 +9,7 @@ export default function Qnaa() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('백엔드 서버의 URL');
+        const response = await axios.get('https://aeb1-210-218-52-13.ngrok-free.app/kody/create');
         setData(response.data);
       } catch (error) {
         console.error('에러 뜸', error);
