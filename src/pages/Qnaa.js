@@ -44,3 +44,8 @@ export default function Qnaa() {
     </div>
   );
 }
+
+//백엔드에서 받아온 데이터를 response.data로 처리하면서!
+//그리고 map 함수 써서 각각의 질문과 답변을 분리함
+//questiondata와 answerdata state에 저장해놓고
+//저장된 데이터를 map 함수를 사용하여 각각의 리스트 아이템으로 출력함
