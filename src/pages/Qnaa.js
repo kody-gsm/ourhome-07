@@ -4,13 +4,28 @@ import { Link } from "react-router-dom";
 import kodylogo from "../imgs/kody.png";
 
 export default function Qnaa() {
-  const [questiondata, setQuestiondataata] = useState([]);
+  const [questiondata, setQuestiondata] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://aeb1-210-218-52-13.ngrok-free.app/kody/create');
-        setQuestiondataata(response.questiondata);
+        const Qresponse = await axios.get('https://aeb1-210-218-52-13.ngrok-free.app/kody/create');
+        setQuestiondata(Qresponse.questiondata);
+      } catch (error) {
+        console.error('tlqkf 집가고싶다', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const [answerdata, setAnswerdata] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const Aresponse = await axios.get('https://aeb1-210-218-52-13.ngrok-free.app/kody/create');
+        setAnswerdata(Aresponse.answerdata);
       } catch (error) {
         console.error('tlqkf 집가고싶다', error);
       }
@@ -30,7 +45,10 @@ export default function Qnaa() {
         <h2>자주 묻는 질문의 답변이에요!</h2>
         <ul>
           {questiondata.map(item => (
-            <li key={item.id}>{item.text}</li>
+              <li key={item.Qid}>{item.Qtext}</li>
+          ))}
+          {answerdata.map(item => (
+              <li key={item.Aid}>{item.Atext}</li>
           ))}
         </ul>
       </div>  
