@@ -31,7 +31,6 @@ export default function Qnaa() {
       <div className="main">
         <h2>자주 묻는 질문의 답변이에요!</h2> 
         <ul>
-          {/* 질문과 답변을 각각의 리스트로 출력 */}
           {questiondata.map((item, index) => (
               <li key={`question-${index}`}>{item}</li>
           ))}
