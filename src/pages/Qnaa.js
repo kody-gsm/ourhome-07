@@ -27,7 +27,7 @@ export default function Qnaa() {
         const Aresponse = await axios.get('https://aeb1-210-218-52-13.ngrok-free.app/kody/create');
         setAnswerdata(Aresponse.answerdata);
       } catch (error) {
-        console.error('tlqkf 집가고싶다', error);
+        console.error('tlqkf ㅈㄴ 집가고싶다', error);
       }
     };
 
