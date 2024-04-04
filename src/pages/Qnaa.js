@@ -10,8 +10,7 @@ export default function Qnaa() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://aeb1-210-218-52-13.ngrok-free.app/kody/create');
-        // 서버로부터 받아온 데이터에서 질문과 답변을 분리하여 처리
+        const response = await axios.get('https://aeb1-210-218-52-13.ngrok-free.app/kody/create');  
         setQuestiondata(response.data.map(item => item.Qtext));
         setAnswerdata(response.data.map(item => item.Atext));
       } catch (error) {
