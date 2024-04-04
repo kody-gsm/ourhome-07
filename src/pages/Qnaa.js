@@ -5,29 +5,17 @@ import kodylogo from "../imgs/kody.png";
 
 export default function Qnaa() {
   const [questiondata, setQuestiondata] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const Qresponse = await axios.get('https://aeb1-210-218-52-13.ngrok-free.app/kody/create');
-        setQuestiondata(Qresponse.questiondata);
-      } catch (error) {
-        console.error('tlqkf 집가고싶다', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   const [answerdata, setAnswerdata] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const Aresponse = await axios.get('https://aeb1-210-218-52-13.ngrok-free.app/kody/create');
-        setAnswerdata(Aresponse.answerdata);
+        const response = await axios.get('https://aeb1-210-218-52-13.ngrok-free.app/kody/create');
+        // 서버로부터 받아온 데이터에서 질문과 답변을 분리하여 처리
+        setQuestiondata(response.data.map(item => item.Qtext));
+        setAnswerdata(response.data.map(item => item.Atext));
       } catch (error) {
-        console.error('tlqkf ㅈㄴ 집가고싶다', error);
+        console.error('Please kill me....', error);
       }
     };
 
@@ -44,11 +32,12 @@ export default function Qnaa() {
       <div className="main">
         <h2>자주 묻는 질문의 답변이에요!</h2> 
         <ul>
-          {questiondata.map(item => (
-              <li key={item.Qid}>{item.Qtext}</li>
+          {/* 질문과 답변을 각각의 리스트로 출력 */}
+          {questiondata.map((item, index) => (
+              <li key={`question-${index}`}>{item}</li>
           ))}
-          {answerdata.map(item => (
-              <li key={item.Aid}>{item.Atext}</li>
+          {answerdata.map((item, index) => (
+              <li key={`answer-${index}`}>{item}</li>
           ))}
         </ul>
       </div>  
