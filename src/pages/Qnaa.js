@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import kodylogo from "../imgs/kody.png";
 
 export default function Qnaa() {
-  const [data, setData] = useState([]);
+  const [questiondata, setQuestiondataata] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get('https://aeb1-210-218-52-13.ngrok-free.app/kody/create');
-        setData(response.data);
+        setQuestiondataata(response.questiondata);
       } catch (error) {
         console.error('tlqkf 집가고싶다', error);
       }
@@ -29,7 +29,7 @@ export default function Qnaa() {
       <div className="main">
         <h2>자주 묻는 질문의 답변이에요!</h2>
         <ul>
-          {data.map(item => (
+          {questiondata.map(item => (
             <li key={item.id}>{item.text}</li>
           ))}
         </ul>
