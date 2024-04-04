@@ -42,7 +42,7 @@ export default function Qnaa() {
       </div>
       <hr />
       <div className="main">
-        <h2>자주 묻는 질문의 답변이에요!</h2>
+        <h2>자주 묻는 질문의 답변이에요!</h2> 
         <ul>
           {questiondata.map(item => (
               <li key={item.Qid}>{item.Qtext}</li>
