@@ -10,8 +10,20 @@ export default function Qnaa() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_BACKEND_get_URL);  
+        const response = await axios.get(process.env.REACT_APP_BACKEND_POST_GET_URL);  
         setQuestiondata(response.data.map(item => item.Qtext));
+      } catch (error) {
+        console.error('Please kill Doyeon Kim....', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(process.env.REACT_APP_BACKEND_GET_URL);  
         setAnswerdata(response.data.map(item => item.Atext));
       } catch (error) {
         console.error('Please kill Doyeon Kim....', error);

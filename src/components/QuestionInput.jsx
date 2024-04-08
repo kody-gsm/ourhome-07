@@ -15,9 +15,8 @@ function QuestionInput() {
 
     try {
 
-      const response = await axios.post(process.env.REACT_APP_BACKEND_post_URL, { question });
+      const response = await axios.post(process.env.REACT_APP_BACKEND_post_create_URL, { question });
       console.log(response.data); 
-      
       
       setQuestion("");  
       setQuestionSendPage(
@@ -25,8 +24,9 @@ function QuestionInput() {
           <img className="sendImg" src={sendSuccess}></img>
         </span>
       );
-
+      
     } catch (error) {
+      console.log(process.env.REACT_APP_BACKEND_POST_CREATE_URL);
       console.error('되겠냐?!', error);
       // 오류 처리
       setQuestionSendPage(
