@@ -10,7 +10,7 @@ function AdminAnswer() {
   const handleSubmit = async () => {
     try {
       
-      const response = await axios.post(process.env.REACT_APP_BACKEND_post_URL, { adminquestion });
+      const response = await axios.post(process.env.REACT_APP_BACKEND_GET_CREATE_URL, { adminquestion });
       console.log(response.data);
        
 
@@ -27,7 +27,7 @@ function AdminAnswer() {
   useEffect(() => {
     const fetchadmindata = async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_BACKEND_get_URL);
+        const response = await axios.get(process.env.REACT_APP_BACKEND_GET_URL);
         setAdmindata(response.admindata);
 
 
