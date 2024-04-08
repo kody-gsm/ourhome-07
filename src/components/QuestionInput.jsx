@@ -17,7 +17,7 @@ function QuestionInput() {
 
       const response = await axios.post('REACT_APP_BACKEND_post_URL', { question });
       console.log(response.data); 
-
+      
       
       setQuestion("");  
       setQuestionSendPage(

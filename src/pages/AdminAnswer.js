@@ -27,12 +27,10 @@ function AdminAnswer() {
   useEffect(() => {
     const fetchadmindata = async () => {
       try {
-<<<<<<< HEAD
-        const response = await axios.get('REACT_APP_BACKend_get_URL');
-=======
-        const response = await axios.get('https://9ea1-152-67-210-200.ngrok-free.app/kody/Question');
->>>>>>> 1bf2f09150759d88abdaa7455e96260036161fdb
+        const response = await axios.get('REACT_APP_BACKEND_get_URL');
         setAdmindata(response.admindata);
+
+
       } catch (error) {
         console.error('아잇 싯팔', error);
       }

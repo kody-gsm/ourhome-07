@@ -10,7 +10,7 @@ export default function Qnaa() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('REACT_APP_BACKend_get_URL');  
+        const response = await axios.get('REACT_APP_BACKEND_get_URL');  
         setQuestiondata(response.data.map(item => item.Qtext));
         setAnswerdata(response.data.map(item => item.Atext));
       } catch (error) {
