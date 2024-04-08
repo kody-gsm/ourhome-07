@@ -26,7 +26,6 @@ function QuestionInput() {
       );
       
     } catch (error) {
-      console.log(process.env.REACT_APP_BACKEND_POST_CREATE_URL);
       console.error('되겠냐?!', error);
       // 오류 처리
       setQuestionSendPage(
