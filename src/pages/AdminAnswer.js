@@ -10,8 +10,9 @@ function AdminAnswer() {
   const handleSubmit = async () => {
     try {
       
-      const response = await axios.post('url', { adminquestion });
-      console.log(response.data); 
+      const response = await axios.post('https://9ea1-152-67-210-200.ngrok-free.app/kody/create', { adminquestion });
+      console.log(response.data);
+       
 
       
       setAdminquestion("");
@@ -26,7 +27,7 @@ function AdminAnswer() {
   useEffect(() => {
     const fetchadmindata = async () => {
       try {
-        const response = await axios.get('백엔드 서버의 URL');
+        const response = await axios.get('https://9ea1-152-67-210-200.ngrok-free.app/kody/create');
         setAdmindata(response.admindata);
       } catch (error) {
         console.error('아잇 싯팔', error);

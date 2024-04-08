@@ -10,7 +10,7 @@ export default function Qnaa() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://aeb1-210-218-52-13.ngrok-free.app/kody/create');  
+        const response = await axios.get('https://9ea1-152-67-210-200.ngrok-free.app/kody/create');  
         setQuestiondata(response.data.map(item => item.Qtext));
         setAnswerdata(response.data.map(item => item.Atext));
       } catch (error) {

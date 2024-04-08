@@ -14,8 +14,8 @@ function QuestionInput() {
     }
 
     try {
-      
-      const response = await axios.post('https://a97e-210-218-52-13.ngrok-free.app/', { question });
+
+      const response = await axios.post('https://9ea1-152-67-210-200.ngrok-free.app/kody/create', { question });
       console.log(response.data); 
 
       
