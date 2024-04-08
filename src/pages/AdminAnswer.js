@@ -10,7 +10,7 @@ function AdminAnswer() {
   const handleSubmit = async () => {
     try {
       
-      const response = await axios.post(process.env.REACT_APP_BACKEND_GET_CREATE_URL, { adminquestion });
+      const response = await axios.post(process.env.REACT_APP_BACKEND_POST_GET_URL, { adminquestion });
       console.log(response.data);
        
 
