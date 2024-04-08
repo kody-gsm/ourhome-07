@@ -27,7 +27,7 @@ function AdminAnswer() {
   useEffect(() => {
     const fetchadmindata = async () => {
       try {
-        const response = await axios.get('https://9ea1-152-67-210-200.ngrok-free.app/kody/create');
+        const response = await axios.get('https://9ea1-152-67-210-200.ngrok-free.app/kody/Question');
         setAdmindata(response.admindata);
       } catch (error) {
         console.error('아잇 싯팔', error);
