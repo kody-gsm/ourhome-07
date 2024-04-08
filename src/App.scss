@@ -676,3 +676,27 @@ body::-webkit-scrollbar-track {
   font-weight: 500;
   cursor: pointer;
 }
+
+.AdminreButton{
+  margin-left: 2vw;
+  width: 80px;
+  height: 40px;
+  margin-top: 5vh;
+  background-color: #565758;
+  color: #ffffff;
+  border-radius: 5px;
+  border: 0;
+  outline: 0;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.AdminreInput{
+  font-family: "12LotteMartDreamMedium";
+          width: 20%;
+          height: 50px;
+          border: 0.5px solid #d9d9d9;
+          margin-left: 8vw;
+          margin-top: -10vh;
+          text-align: center;
+}
