@@ -15,7 +15,7 @@ function QuestionInput() {
 
     try {
 
-      const response = await axios.post(process.env.REACT_APP_BACKEND_post_create_URL, { question });
+      const response = await axios.post(process.env.REACT_APP_BACKEND_POST_CREATE_URL, { question });
       console.log(response.data); 
       
       setQuestion("");  
