@@ -15,11 +15,11 @@ function QuestionInput() {
 
     try {
 
-      const response = await axios.post('https://9ea1-152-67-210-200.ngrok-free.app/kody/create', { question });
+      const response = await axios.post('REACT_APP_BACKEND_post_URL', { question });
       console.log(response.data); 
 
       
-      setQuestion("");
+      setQuestion("");  
       setQuestionSendPage(
         <span className="sendBack" onClick={()=>(setQuestionSendPage(<span/>))}>
           <img className="sendImg" src={sendSuccess}></img>

@@ -10,11 +10,11 @@ export default function Qnaa() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://9ea1-152-67-210-200.ngrok-free.app/kody/create');  
+        const response = await axios.get('REACT_APP_BACKend_get_URL');  
         setQuestiondata(response.data.map(item => item.Qtext));
         setAnswerdata(response.data.map(item => item.Atext));
       } catch (error) {
-        console.error('Please kill me....', error);
+        console.error('Please kill Doyeon Kim....', error);
       }
     };
 
