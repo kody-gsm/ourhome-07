@@ -10,7 +10,7 @@ import AdminAnswer from "./pages/AdminAnswer";
 
 export default function App() {
   axios.defaults.withCredentials = true;
-  const url = "https://d55e-210-218-52-13.ngrok-free.app/welcome/kody";
+  const url = "https://dbab-152-67-210-200.ngrok-free.app/welcome/kody";
   return <div className="App">
     <BrowserRouter>
       <Routes>

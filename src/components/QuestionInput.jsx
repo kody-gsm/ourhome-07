@@ -27,7 +27,6 @@ function QuestionInput() {
       
     } catch (error) {
       console.error('되겠냐?!', error);
-      // 오류 처리
       setQuestionSendPage(
         <span className="sendBack" onClick={()=>(setQuestionSendPage(<span/>))}>
           <img className="sendImg" src={sendFail}></img>
