@@ -4,33 +4,19 @@ import { Link } from "react-router-dom";
 import kodylogo from "../imgs/kody.png";
 
 export default function Qnaa() {
-  const [questions, setQuestions] = useState(new Map());
-  const [answers, setAnswers] = useState(new Map());
+  const [qnaPairs, setQnaPairs] = useState([]);
 
   useEffect(() => {
-    const fetchQuestions = async () => {
+    const fetchQnaPairs = async () => {
       try {
         const response = await axios.post(process.env.REACT_APP_BACKEND_GET_URL);
-        setQuestions(new Map(Object.entries(response.data)));
+        setQnaPairs(response.data);
       } catch (error) {
-        console.error('Error fetching questions:', error);
+        console.error('Error fetching Q&A pairs:', error);
       }
     };
 
-    fetchQuestions();
-  }, []);
-
-  useEffect(() => {
-    const fetchAnswers = async () => {
-      try {
-        const response = await axios.post(process.env.REACT_APP_BACKEND_ANSWER_URL);
-        setAnswers(new Map(Object.entries(response.data)));
-      } catch (error) {
-        console.error('Error fetching answers:', error);
-      }
-    };
-
-    fetchAnswers();
+    fetchQnaPairs();
   }, []);
 
   return (
@@ -43,14 +29,11 @@ export default function Qnaa() {
       <div className="main">
         <h2>자주 묻는 질문의 답변이에요!</h2> 
         <ul>
-          {[...questions.keys()].map((key, index) => (
-              <li key={`question-${index}`}>{questions.get(key)}</li>
-          ))}
-        </ul>
-
-        <ul>
-          {[...answers.keys()].map((key, index) => (
-              <li key={`answer-${index}`}>{answers.get(key)}</li>
+          {qnaPairs.map((qnaPair, index) => (
+              <li key={`qnaPair-${index}`}>
+                <p>질문: {qnaPair.question}</p>
+                <p>답변: {qnaPair.answer}</p>
+              </li>
           ))}
         </ul>
       </div>  

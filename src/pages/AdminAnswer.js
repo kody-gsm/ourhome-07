@@ -21,7 +21,6 @@ function AdminAnswer() {
     const fetchAdmindata = async () => {
       try {
         const response = await axios.post(process.env.REACT_APP_BACKEND_QUESTION_URL);
-        // 받아온 데이터를 Map으로 변환
         const mapData = new Map(Object.entries(response.data));
         setAdmindata(mapData);
       } catch (error) {
@@ -44,7 +43,6 @@ function AdminAnswer() {
           <div className="question-area">
             <h1 className="upper">Q .</h1>
             <div className="answer-box">
-              {/* Map을 순회하며 텍스트 영역에 데이터 표시 */}
               {[...admindata.entries()].map(([key, value]) => (
                 <textarea
                   key={key}
