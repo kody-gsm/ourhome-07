@@ -4,36 +4,36 @@ import { Link } from "react-router-dom";
 import kodylogo from "../imgs/kody.png";
 
 export default function Qnaa() {
-  const [questiondata, setQuestiondata] = useState([]);
-  const [answerdata, setAnswerdata] = useState([]);
+  const [questions, setQuestions] = useState(new Map());
+  const [answers, setAnswers] = useState(new Map());
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchQuestions = async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_BACKEND_POST_GET_URL);  
-        setQuestiondata(response.data.map(item => item.Qtext));
+        const response = await axios.post(process.env.REACT_APP_BACKEND_GET_URL);
+        setQuestions(new Map(Object.entries(response.data)));
       } catch (error) {
-        console.error('Please kill Doyeon Kim....', error);
+        console.error('Error fetching questions:', error);
       }
     };
 
-    fetchData();
+    fetchQuestions();
   }, []);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchAnswers = async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_BACKEND_GET_URL);  
-        setAnswerdata(response.data.map(item => item.Atext));
+        const response = await axios.post(process.env.REACT_APP_BACKEND_ANSWER_URL);
+        setAnswers(new Map(Object.entries(response.data)));
       } catch (error) {
-        console.error('Please kill Doyeon Kim....', error);
+        console.error('Error fetching answers:', error);
       }
     };
 
-    fetchData();
+    fetchAnswers();
   }, []);
 
-  return(
+  return (
     <div className="qnaa">
       <div className="header">
         <img className="kodylogo" src={kodylogo} alt="kodylogo" onClick={e => window.location.href = 'welcome'} />
@@ -43,19 +43,17 @@ export default function Qnaa() {
       <div className="main">
         <h2>자주 묻는 질문의 답변이에요!</h2> 
         <ul>
-          {questiondata.map((item, index) => (
-              <li key={`question-${index}`}>{item}</li>
+          {[...questions.keys()].map((key, index) => (
+              <li key={`question-${index}`}>{questions.get(key)}</li>
           ))}
-          {answerdata.map((item, index) => (
-              <li key={`answer-${index}`}>{item}</li>
+        </ul>
+
+        <ul>
+          {[...answers.keys()].map((key, index) => (
+              <li key={`answer-${index}`}>{answers.get(key)}</li>
           ))}
         </ul>
       </div>  
     </div>
   );
 }
-
-//백엔드에서 받아온 데이터를 response.data로 처리하면서!
-//그리고 map 함수 써서 각각의 질문과 답변을 분리함
-//questiondata와 answerdata state에 저장해놓고
-//저장된 데이터를 map 함수를 사용하여 각각의 리스트 아이템으로 출력함

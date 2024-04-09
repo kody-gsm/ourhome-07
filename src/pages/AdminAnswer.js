@@ -27,7 +27,7 @@ function AdminAnswer() {
   useEffect(() => {
     const fetchadmindata = async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_BACKEND_GET_URL);
+        const response = await axios.post(process.env.REACT_APP_BACKEND_GET_URL);
         setAdmindata(response.admindata);
 
 
