@@ -1,42 +1,35 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NavBar from "../components/NavBar";
+import { Link } from "react-router-dom";
 
 function AdminAnswer() {
-
   const [adminquestion, setAdminquestion] = useState("");
+  const [admindata, setAdmindata] = useState(new Map());
 
-  
   const handleSubmit = async () => {
     try {
-      
       const response = await axios.post(process.env.REACT_APP_BACKEND_POST_GET_URL, { adminquestion });
       console.log(response.data);
-       
-
-      
       setAdminquestion("");
     } catch (error) {
-      console.error('되겠냐?!', error);
-      // 오류 처리
+      console.error('Error:', error);
     }
   };
 
-  const [admindata, setAdmindata] = useState([]);
-
   useEffect(() => {
-    const fetchadmindata = async () => {
+    const fetchAdmindata = async () => {
       try {
-        const response = await axios.post(process.env.REACT_APP_BACKEND_GET_URL);
-        setAdmindata(response.admindata);
-
-
+        const response = await axios.post(process.env.REACT_APP_BACKEND_QUESTION_URL);
+        // 받아온 데이터를 Map으로 변환
+        const mapData = new Map(Object.entries(response.data));
+        setAdmindata(mapData);
       } catch (error) {
-        console.error('아잇 싯팔', error);
+        console.error('Error:', error);
       }
     };
 
-    fetchadmindata();
+    fetchAdmindata();
   }, []);
 
   return(
@@ -44,48 +37,55 @@ function AdminAnswer() {
       <NavBar />
       
       <div className="question">
-      <div className="question-part">
-        <p className="attention-ment">
-          GSM 학생들이 kody에 관심이 있나봐요 ㅎ
-        </p>
-        <div className="question-area">
-          <h1 className="upper">Q .</h1>
-          <div className="answer-box">
-            <textarea
-              type="text"
-              className="answer-input-box answer"
-              disabled="disabled"
-              value={admindata}
-              ></textarea>
+        <div className="question-part">
+          <p className="attention-ment">
+            GSM 학생들이 kody에 관심이 있나봐요 ㅎ
+          </p>
+          <div className="question-area">
+            <h1 className="upper">Q .</h1>
+            <div className="answer-box">
+              {/* Map을 순회하며 텍스트 영역에 데이터 표시 */}
+              {[...admindata.entries()].map(([key, value]) => (
+                <textarea
+                  key={key}
+                  type="text"
+                  className="answer-input-box answer"
+                  disabled="disabled"
+                  value={value}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    
+      
       <div className="question">
-      <div className="popup"></div>
-      <div className="question-part">
-        <p className="attention-ment">
-          위에 질문에 대한 답변을 적으세요.
-        </p>
-        <div className="question-area">
-          <h1 className="upper">A .</h1>
-          <div className="question-box">
-            <textarea
-              type="text"
-              placeholder="답변을 입력해주세요"
-              className="question-input-box"
-              value={adminquestion}
-              onChange={(e) => setAdminquestion(e.target.value)}
-            />
-            <button className="btn-answer" onClick={handleSubmit}>
-              보내기
-            </button>
+        <div className="popup"></div>
+        <div className="question-part">
+          <p className="attention-ment">
+            위에 질문에 대한 답변을 적으세요.
+          </p>
+          <div className="question-area">
+            <h1 className="upper">A .</h1>
+            <div className="question-box">
+              <textarea
+                type="text"
+                placeholder="답변을 입력해주세요"
+                className="question-input-box"
+                value={adminquestion}
+                onChange={(e) => setAdminquestion(e.target.value)}
+              />
+              <Link to="/qna-answers">
+              <button className="btn-answer" onClick={handleSubmit}>
+                보내기
+              </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-    );
-  }
+  );
+}
+
 export default AdminAnswer;
