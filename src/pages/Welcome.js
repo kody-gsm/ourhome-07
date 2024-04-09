@@ -20,7 +20,6 @@ export default function Welcome(prop) {
     fetchQnaPairs();
   }, []);
 
-  // 4개의 빈 객체로 이루어진 배열 생성
   const emptyQuestions = new Array(4 - qnaPairs.length).fill({ question: "", answer: "" });
 
   return (
@@ -53,7 +52,6 @@ export default function Welcome(prop) {
               <span className="WelcomeScssManyQuestionText">자주 묻는 질문들이에요</span>
             </span>
             <span className="WelcomeScssManyQuestionGrid">
-              {/* qnaPairs의 각 항목을 매핑하여 질문을 표시 */}
               {qnaPairs.map((qnaPair, index) => (
                 <div className="ManyQuestion" key={`qnaPair-${index}`} onClick={() => (window.location.href = '/qna-answers')}>
                   <span className="ManyQuestionContent">
