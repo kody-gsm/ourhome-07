@@ -2,52 +2,27 @@ import React, { useEffect, useState } from "react";
 import kodylogo from '../imgs/kody.png';
 import textbox from '../imgs/textbox.png';
 import bell from '../imgs/bell.png';
-import sendSuccess from '../imgs/sendSuccess.png';
-import { Link } from "react-router-dom";
 import axios from "axios";
 
-function GetQnAData(num) {
-  const [data, setData] = useState(null);
+export default function Welcome(prop) {
+  const [qnaPairs, setQnaPairs] = useState([]);
 
   useEffect(() => {
-    axios.get(REACT_APP_BACKEND_DATAS_URL+{num})
-      .then(response => {
-        setData(response.data);
-      })
-      .catch(error => {
-        console.error("Error fetching question data:", error);
-      });
-  }, [num]);
+    const fetchQnaPairs = async () => {
+      try {
+        const response = await axios.post(process.env.REACT_APP_BACKEND_GET_URL);
+        setQnaPairs(response.data);
+      } catch (error) {
+        console.error('Error fetching Q&A pairs:', error);
+      }
+    };
 
-  return (
-    <div className="QuestionContainer" onClick={() => (window.location.href = '/qna-answers')}>
-      {data && (
-        <div className="QuestionTexts">
-          <span>Q. {data.question}</span>
-          <span>A. {data.answer || "No answer provided"}</span> 
-        </div>
-      )}
-    </div>
-  );
-}
+    fetchQnaPairs();
+  }, []);
 
-function ManyQuestion(num) {
-  return (
-    <div className="ManyQuestion" onClick={() => (window.location.href = '/qna-answers')}>
-      <span className="ManyQuestionContent">
-        <span className="ManyQuestionQnAContainer">
-          <span className="ManyQuestionQnATextBox">
-          </span>
-          <span className="ManyQuestionQnAData">
-            <GetQnAData num={num} />
-          </span>
-        </span>
-      </span>
-    </div>
-  );
-}
+  // 4개의 빈 객체로 이루어진 배열 생성
+  const emptyQuestions = new Array(4 - qnaPairs.length).fill({ question: "", answer: "" });
 
-export default function Welcome(prop) {
   return (
     <div className="WelcomeScssWelcomeContainer">
       <div className="WelcomeScssMainContents">
@@ -78,10 +53,41 @@ export default function Welcome(prop) {
               <span className="WelcomeScssManyQuestionText">자주 묻는 질문들이에요</span>
             </span>
             <span className="WelcomeScssManyQuestionGrid">
-              {ManyQuestion(1)}
-              {ManyQuestion(2)}
-              {ManyQuestion(3)}
-              {ManyQuestion(4)}
+              {/* qnaPairs의 각 항목을 매핑하여 질문을 표시 */}
+              {qnaPairs.map((qnaPair, index) => (
+                <div className="ManyQuestion" key={`qnaPair-${index}`} onClick={() => (window.location.href = '/qna-answers')}>
+                  <span className="ManyQuestionContent">
+                    <span className="ManyQuestionQnAContainer">
+                      <span className="ManyQuestionQnATextBox">
+                      </span>
+                      <span className="ManyQuestionQnAData">
+                        <span className="QuestionContainer">
+                          <span className="QuestionTexts">
+                            <span>Q. {qnaPair.question || "No question provided"}</span>
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              ))}
+              {emptyQuestions.map((emptyQuestion, index) => (
+                <div className="ManyQuestion" key={`emptyQuestion-${index}`}>
+                  <span className="ManyQuestionContent">
+                    <span className="ManyQuestionQnAContainer">
+                      <span className="ManyQuestionQnATextBox">
+                      </span>
+                      <span className="ManyQuestionQnAData">
+                        <span className="QuestionContainer">
+                          <span className="QuestionTexts">
+                            <span>Q. {emptyQuestion.question || ""}</span>
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              ))}
               <span className="WelcomeScssManyQuestionDotBox">
                 <span className="WelcomeScssManyQuestionDot"></span>
                 <span className="WelcomeScssManyQuestionDot"></span>
