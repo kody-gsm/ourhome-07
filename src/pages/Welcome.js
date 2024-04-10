@@ -49,7 +49,7 @@ export default function Welcome(prop) {
           <span className="WelcomeScssManyQuestionBox">
             <span className="WelcomeScssManyQuestionHead">
               <img className="WelcomeScssManyQuestionImg" src={bell} alt="bell"></img>
-              <span className="WelcomeScssManyQuestionText">자주 묻는 질문들이에요</span>
+              <span className="WelcomeScssManyQuestionText">지금 있는 질문들이에요.</span>
             </span>
             <span className="WelcomeScssManyQuestionGrid">
               {qnaPairs.map((qnaPair, index) => (

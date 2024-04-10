@@ -27,13 +27,15 @@ export default function Qnaa() {
       </div>
       <hr />
       <div className="main">
-        <h2>자주 묻는 질문의 답변이에요!</h2> 
+        <h2>모든 질문과 답변들이에요!</h2> 
         <ul>
           {qnaPairs.map((qnaPair, index) => (
-              <li key={`qnaPair-${index}`}>
-                <p>질문: {qnaPair.question}</p>
-                <p>답변: {qnaPair.answer}</p>
-              </li>
+            <div className="boxes">
+              <div className="answerbox" key={`qnaPair-${index}`}>
+                <div className="div"><h1 className="upper">Q .</h1><div className="likeinput"><span>{qnaPair.question}</span></div></div>
+                <div className="div"><h1 className="upper-a">A .</h1><div className="likeinput-a"><span>{qnaPair.answer}</span></div></div>
+              </div>
+            </div>
           ))}
         </ul>
       </div>  

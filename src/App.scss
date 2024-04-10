@@ -525,7 +525,7 @@ body::-webkit-scrollbar-track {
       .boxes {
         .answerbox {
           border: 1px solid #050505;
-          height: 220px;
+          height: 190px;
           margin-bottom: 50px;
           border-radius: 30px;
 
@@ -537,17 +537,32 @@ body::-webkit-scrollbar-track {
           }
 
           .div {
-            margin-right: 20px;
+            margin-right: 45px;
             margin-top: 15px;
             float: right;
             display: flex;
             align-items: center;
+            
+
+            .upper {
+              margin-top: 0px;
+              margin-right: 20px;
+              font-size: 55px;
+              font-family: 'Katibeh', cursive;
+            }
+
+            .upper-a{
+              margin-top: -40px;
+              margin-right: 20px;
+              font-size: 55px;
+              font-family: 'Katibeh', cursive;
+            }
 
             .likeinput {
               display: flex;
               border: 1px solid #d9d9d9;
               font-size: 18px;
-              width: 50vw;
+              width: 48vw;
               // height: 50px;
               border-radius: 8px;
               align-items: center;
@@ -556,6 +571,23 @@ body::-webkit-scrollbar-track {
               span {
                 margin: 1vh 1vw;
               }
+
+            }
+
+            .likeinput-a {
+            display: flex;
+            border: 1px solid #d9d9d9;
+            font-size: 18px;
+            width: 48vw;
+            // height: 50px;
+            border-radius: 8px;
+            align-items: center;
+            box-shadow: 0px 0px 2px 2px #efefef;
+            margin-top: -50px;
+
+            span {
+              margin: 1vh 1vw;
+            }
             }
           }
         }
