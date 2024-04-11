@@ -38,6 +38,7 @@ export default function Qnaa() {
             </div>
           ))}
         </ul>
+        <h2>F5를 눌러 답변이 왔는지 오지 않았는지 확인해 보세요!</h2>
       </div>  
     </div>
   );
