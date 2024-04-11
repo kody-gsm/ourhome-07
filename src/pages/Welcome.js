@@ -20,7 +20,7 @@ export default function Welcome(prop) {
     fetchQnaPairs();
   }, []);
 
-  const emptyQuestions = new Array(4 - qnaPairs.length).fill({ question: "", answer: "" });
+  const emptyQuestions = new Array(5 - qnaPairs.length).fill({ question: "", answer: "" });
 
   return (
     <div className="WelcomeScssWelcomeContainer">
