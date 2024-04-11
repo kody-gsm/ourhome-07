@@ -20,7 +20,8 @@ export default function Welcome(prop) {
     fetchQnaPairs();
   }, []);
 
-  const emptyQuestions = new Array(5 - qnaPairs.length).fill({ question: "", answer: "" });
+  // 최대 4개의 빈 질문 슬롯을 만듭니다.
+  const displayedQnaPairs = qnaPairs.slice(0, 4);
 
   return (
     <div className="WelcomeScssWelcomeContainer">
@@ -52,7 +53,7 @@ export default function Welcome(prop) {
               <span className="WelcomeScssManyQuestionText">지금 있는 질문들이에요.</span>
             </span>
             <span className="WelcomeScssManyQuestionGrid">
-              {qnaPairs.map((qnaPair, index) => (
+              {displayedQnaPairs.map((qnaPair, index) => (
                 <div className="ManyQuestion" key={`qnaPair-${index}`} onClick={() => (window.location.href = '/qna-answers')}>
                   <span className="ManyQuestionContent">
                     <span className="ManyQuestionQnAContainer">
@@ -62,23 +63,6 @@ export default function Welcome(prop) {
                         <span className="QuestionContainer">
                           <span className="QuestionTexts">
                             <span>Q. {qnaPair.question || "No question provided"}</span>
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                  </span>
-                </div>
-              ))}
-              {emptyQuestions.map((emptyQuestion, index) => (
-                <div className="ManyQuestion" key={`emptyQuestion-${index}`}>
-                  <span className="ManyQuestionContent">
-                    <span className="ManyQuestionQnAContainer">
-                      <span className="ManyQuestionQnATextBox">
-                      </span>
-                      <span className="ManyQuestionQnAData">
-                        <span className="QuestionContainer">
-                          <span className="QuestionTexts">
-                            <span>Q. {emptyQuestion.question || ""}</span>
                           </span>
                         </span>
                       </span>
